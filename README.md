@@ -46,8 +46,8 @@ module.exports = {
 };
 ```
 
-Add [manifest file](https://developer.mozilla.org/pt-BR/docs/Web/Manifest) to `/public` and 
-add `<link rel="manifest" href="/manifest.webmanifest">` to `/src/pages/_app.tsx`
+Add [manifest.json file](https://developer.mozilla.org/pt-BR/docs/Web/Manifest) to `/public` and 
+add `<link rel="manifest" href="/manifest.json">` to `/src/pages/_app.tsx`
 
 ## Deploy on Vercel
 
