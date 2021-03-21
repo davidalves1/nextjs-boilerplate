@@ -17,18 +17,37 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Working with PWA
 
-To work with a PWA is necessary to add [**Next PWA**](https://www.npmjs.com/package/next-pwa): 
+To configure the app to work with PWA is necessary to add 
+[**Next PWA**](https://www.npmjs.com/package/next-pwa): 
 
 ```bash
 yarn add next-pwa
 ```
 
-The currente version of Next PWA (5.0.6) requires Webpack 4, so to this current version of NextJS (10.0.7) 
-it is necessary to run:
+The current version of Next PWA (5.0.6) requires Webpack 4, so to this current version of NextJS (10.0.7) 
+it's necessary to run:
   
 ```bash
 yarn add webpack@4
 ```
+
+Add this code to the `next.config.js` file (if not exists it should be created in the root):
+
+```js
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const withPwa = require('next-pwa');
+const isProd = process.env.NODE_ENV === 'production';
+
+module.exports = {
+  pwa: {
+    dest: 'public',
+    disable: !isProd,
+  },
+};
+```
+
+Add [manifest file](https://developer.mozilla.org/pt-BR/docs/Web/Manifest) to `/public` and 
+add `<link rel="manifest" href="/manifest.webmanifest">` to `/src/pages/_app.tsx`
 
 ## Deploy on Vercel
 
